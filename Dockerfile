@@ -19,6 +19,8 @@ RUN composer install --no-dev --optimize-autoloader
 
 # Copy the rest of the application source code
 COPY . .
+# Rename capitalized index file for Linux case‑sensitivity
+RUN mv /var/www/html/Index.php /var/www/html/index.php
 
 # Expose port 80 (default for Apache)
 EXPOSE 80
